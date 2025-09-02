@@ -1,5 +1,7 @@
 # MosDNS 独立监控面板
 
+感谢原作者Jimmyzxk<br>
+
 ![MosDNS Monitor Panel Light Theme](https://github.com/user-attachments/assets/bfb2a0d0-5c34-45aa-9057-fadf1b472149)
 _亮色主题预览_
 
@@ -31,7 +33,7 @@ MosDNS 独立监控面板是一个简洁、美观且功能强大的 MosDNS 服�
 ## 部署要求
 
 *   **操作系统**：基于 Debian / Ubuntu 的 Linux 发行版（脚本基于 `apt` 包管理器）。
-*   **MosDNS**：已正确安装并运行，且其 HTTP Metrics 接口（默认为 `http://localhost:9099/metrics`）可访问。
+*   **MosDNS**：已正确安装并运行，且其 HTTP Metrics 接口（默认为 `http://localhost:9080/metrics`）可访问。
 *   **Python3**：系统需安装 Python3 及 `python3-venv`。
 *   **权限**：需要 `sudo` 权限来安装系统依赖、创建服务和配置防火墙。
 
@@ -42,7 +44,7 @@ MosDNS 独立监控面板是一个简洁、美观且功能强大的 MosDNS 服�
 1.  **获取部署脚本**：
     将 `MosDNSUI.sh` 文件下载到您的服务器。最简单的方式是直接从本 GitHub 仓库下载：
     ```bash
-    wget https://raw.githubusercontent.com/Jimmyzxk/MosDNSUI/main/MosDNSUI.sh -O MosDNSUI.sh
+    wget https://raw.githubusercontent.com/AliceHanako/MosDNSUI/main/MosDNSUI.sh -O MosDNSUI.sh
     ```
     _（请确保上述 `main` 分支和 `MosDNSUI.sh` 路径在您上传后是正确的）_
 
@@ -110,7 +112,7 @@ MosDNS 独立监控面板是一个简洁、美观且功能强大的 MosDNS 服�
 您可以编辑部署脚本 `MosDNSUI.sh` 文件开头的变量来定制面板：
 
 *   `FLASK_PORT=5001`：Web 监控面板运行的端口。如果您希望在其他端口运行，请在部署前修改此值。
-*   `MOSDNS_METRICS_URL="http://localhost:9099/metrics"`：MosDNS Metrics 接口的完整 URL。如果您的 MosDNS 监听在不同的 IP 或端口，请相应修改。
+*   `MOSDNS_METRICS_URL="http://localhost:9080/metrics"`：MosDNS Metrics 接口的完整 URL。如果您的 MosDNS 监听在不同的 IP 或端口，请相应修改。
 *   `WEB_USER="www-data"`：运行 Flask 应用的系统用户。默认是 `www-data`，这是一个常见的 Web 服务器用户。
 
 **请注意：** 如果您在部署后修改了这些配置，需要先执行回滚/清理操作，然后重新部署。
